@@ -51,6 +51,7 @@ async function showData() {
         </div>`;
   });
 
+ 
   // Inserindo elementos nos carroseis
   document.getElementById("games-best").innerHTML = bestGamesContent;
   document.getElementById("games-popular").innerHTML = popularGamesContent;

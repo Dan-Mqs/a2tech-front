@@ -24,7 +24,9 @@
       <div class="container">
         <h2 class="logo">GoodBrowserGames</h2>
         <nav>
-          <a id="login-btn" href="./pages/login.html"><i class="fas fa-user"></i></a>
+          <a id="login-btn" href="./pages/login.html"
+            ><i class="fas fa-user"></i
+          ></a>
           <a id="search-btn" href="#"><i class="fas fa-search"></i></a>
         </nav>
       </div>
@@ -69,6 +71,7 @@
             <h3>Mais Populares</h3>
           </div>
           <div class="popular-carosel">
+            <img class="loading-placeholder" src="assets/img/loading.png" />
             <div id="games-popular" class="owl-carousel owl-theme">
               <!-- div para receber os jogos -->
             </div>
@@ -80,6 +83,7 @@
             <h3>Melhores avaliados</h3>
           </div>
           <div class="best-carosel">
+            <img class="loading-placeholder" src="assets/img/loading.png" />
             <div id="games-best" class="owl-carousel owl-theme">
               <!-- div para receber os jogos -->
             </div>
@@ -91,6 +95,7 @@
             <h3>Todos os jogos</h3>
           </div>
           <div class="all-carosel">
+            <img class="loading-placeholder" src="assets/img/loading.png" />
             <div id="games-all" class="owl-carousel owl-theme">
               <!-- div para receber os jogos -->
             </div>
@@ -186,8 +191,10 @@
     ></script>
     <script src="assets/owl/jquery.min.js"></script>
     <script>
-      const owl = setTimeout(owlCallback, 1000);
-      const owlSetup = setTimeout(owlSetupCallback, 1050);
+      const removePh = setTimeout(removePlaceholders, 1150);
+      const owl = setTimeout(owlCallback, 1050);
+      const owlSetup = setTimeout(owlSetupCallback, 1150);
+      
 
       function owlCallback() {
         var script = document.createElement("script");
@@ -199,6 +206,16 @@
         var script = document.createElement("script");
         script.src = "assets/owl/setup.js";
         document.getElementsByTagName("head")[0].appendChild(script);
+      }
+
+      function removePlaceholders() {
+        //Retirando placeholders
+        let placeholders = document.getElementsByClassName(
+          "loading-placeholder"
+        );
+        for (const item of placeholders) {
+          item.style = "display: none;";
+        }
       }
     </script>
 
