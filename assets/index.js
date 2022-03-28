@@ -66,12 +66,19 @@ async function showModal(id) {
   document.getElementById("game-title").innerHTML = game.nome;
   document.getElementById("modal-play-button").href = game.urlAcesso;
   document.getElementById("modal-img").src = game.urlImagem;
+  
+
+  const demoUrlBase = "https://www.youtube.com/embed/";
+  const demoUrl = demoUrlBase + game.urlDemonstracao.slice(-11);
+  document.getElementById("demo-video").src = demoUrl;
 
   document.getElementById("modal-game").style = "display: block;";
+  document.getElementById("modal-bg").style = "display: block;";
 }
 
 function hideModal() {
   document.getElementById("modal-game").style = "display: none;";
+  document.getElementById("modal-bg").style = "display: none;";
 }
 
 showData();

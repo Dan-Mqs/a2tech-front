@@ -98,34 +98,49 @@
         </div>
 
         <!-- Modal -->
+        <div id="modal-bg" onclick="hideModal()"></div>
         <div id="modal-game">
           <div class="wrapper">
-            <div class="container-info">
-              <span id="back" onclick="hideModal()"><i id="back-btn" class="fas fa-angle-left"></i>VOLTAR</span>
-              <h3 id="game-title" class="title">Título do jogo</h3>
-              <span class="rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </span>
+            <div class="game-info">
+              <div class="container-info">
+                <span id="back" onclick="hideModal()"
+                  ><i id="back-btn" class="fas fa-angle-left"></i>VOLTAR</span
+                >
+                <h2 id="game-title" class="title">Título do jogo</h2>
+                <span class="rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <span class="rating-grade">5.0</span>
+                </span>
+                <p class="rating-reviewers">176 avaliações</p>
 
-              <div class="btn-control">
-                <a id="modal-play-button" href="">
+                <div class="btn-control">
+                  <a id="modal-play-button" href="">
+                    <button class="btn" type="button">
+                      <i class="fas fa-play"></i>
+                      <span class="btn-text">JOGAR</span>
+                    </button>
+                  </a>
                   <button class="btn" type="button">
-                    <i class="fas fa-play"></i>
-                    <span class="btn-text">JOGAR</span>
+                    <i class="fas fa-plus"></i>
+                    <span class="btn-text">AVALIAR</span>
                   </button>
-                </a>
-                <button class="btn" type="button">
-                  <i class="fas fa-plus"></i>
-                  <span class="btn-text">AVALIAR</span>
-                </button>
+                </div>
+              </div>
+              <div class="container-img">
+                <img id="modal-img" src="assets/img/loading.png" />
               </div>
             </div>
-            <div class="container-img">
-              <img id="modal-img" src="assets/img/loading.png" />
+            <div id="demo-container">
+              <h3>GAMEPLAY</h3>
+              <iframe id="demo-video" src=""> </iframe>
+            </div>
+            <div id="reviews-container">
+              <h3>AVALIAÇÕES</h3>
+              <p>...</p>
             </div>
           </div>
         </div>
