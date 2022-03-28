@@ -42,6 +42,10 @@
         flex-direction: column;
     }
 
+    header .logo {
+        margin: auto;
+    }
+
     header nav {
         margin-bottom: .5rem;
     }
