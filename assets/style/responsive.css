@@ -14,8 +14,24 @@
         justify-content: space-around;
     }
 
-    .primary-piece .btn-control .btn {
-        margin-right: 0;
+    .btn-control .btn {
+        margin-right: 0 !important;
+    }
+
+    
+}
+
+@media screen and (max-width: 850px){
+    .game-info {
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #modal-game .container-info {
+        margin-top: 1rem;
+        align-items: center;
+        text-align: center;
     }
 }
 
@@ -57,6 +73,10 @@
         width: 12rem;
         height: 15rem;
     }
+    #modal-img {
+        width: 15rem;
+        height: 15rem;
+    }
 }
 
 
@@ -84,5 +104,10 @@
     .item {
         width: 10rem;
         height: 13rem;
+    }
+
+    #demo-video {
+        width: 16rem;
+        height: 9rem;   
     }
 }

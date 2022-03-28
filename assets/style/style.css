@@ -219,6 +219,7 @@ header nav a:hover {
   background-color: var(--black);
   border-radius: 5px;
   border: #444 solid 1px;
+  overflow: auto;
 }
 
 #modal-game .wrapper {
@@ -322,7 +323,7 @@ header nav a:hover {
   align-items: center;
 }
 
-#modal-game .container-img img {
+#modal-img {
   height: 20rem;
   width: 20rem;
   object-fit: cover;
