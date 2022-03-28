@@ -1,0 +1,34 @@
+.container-info {
+  align-items: center !important;
+}
+
+#form-login {
+  display: flex;
+  flex-direction: column;
+}
+
+#form-login label {
+  margin-top: 0.5rem;
+}
+
+#form-login input {
+  font-family: 'Share-Tech', Geneva, Tahoma, sans-serif;
+}
+
+.btn-control {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.btn-control .btn {
+    margin-right: 0 !important;
+}
+
+.btn-control .extra-buttons {
+    margin-top: 1.5rem;
+}
+
+.btn-control .extra-buttons .btn:first-child {
+    margin-right: 1rem;
+}

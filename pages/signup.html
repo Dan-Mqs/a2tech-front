@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="assets/responsive.css" />
+    <!-- Owl style -->
+    <link rel="stylesheet" href="assets/owl/style/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/owl/style/owl.theme.default.min.css">
+    
+    
+
+    <title>GoodBrowserGames</title>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h2 class="logo">GoodBrowserGames</h2>
+        <nav>
+          <a href="./pages/login.html"><i class="fas fa-user"></i></a>
+          <a href="#"><i class="fas fa-search"></i></a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="primary-piece">
+        <div class="wrapper">
+          <div class="container-info">
+            <h3 class="title">EM DESTAQUE</h3>
+            <h2 id="highlighted-name" class="subtitle">...</h2>
+            <span class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </span>
+            
+            <div class="btn-control">
+              <button class="btn" type="button">
+                <i class="fas fa-play"></i>
+                <span class="btn-text">JOGAR</span>
+                
+              </button>
+              <button class="btn" type="button">
+                <i class="fas fa-plus"></i>
+                <span class="btn-text">AVALIAÇÕES</span>
+                </button>
+            </div>
+          </div>
+          <div class="container-img">
+            <img id="highlighted-img" src="assets/img/loading.png">
+          </div>
+        </div>
+      </div>
+      
+      <div class="content">
+        <div class="popular">
+          <div class="section-title">
+            <h3>Mais Populares</h3>
+          </div>
+          <div class="popular-carosel">
+            <div id="games-popular" class="owl-carousel owl-theme">
+                           
+            </div>
+          </div>
+        </div>
+
+        <div id="best-rated" class="best-rated">
+          <div class="section-title">
+            <h3>Melhores avaliados</h3>
+          </div>
+          <div class="best-carosel">
+            <div id="games-best" class="owl-carousel owl-theme">
+               
+            </div>
+          </div>
+        </div>
+
+        <div id="all-titles" class="all-titles">
+          <div class="section-title">
+            <h3>Todos os jogos</h3>
+          </div>
+          <div class="all-carosel">
+            <div id="games-all" class="owl-carousel owl-theme">
+              <!-- div para receber os jogos -->
+            </div>
+          </div>
+        </div>
+
+        <!-- <div id="action" class="action">
+          <div class="section-title">
+            <h3>Ação</h3>
+          </div>
+          <div class="action-carosel">
+            <div id="games-action" class="owl-carousel owl-theme">
+              <div class="item"><img class="box-game" src="assets/img/carousel/dd.png" alt=""></div>              
+              <div class="item"><img class="box-game" src="assets/img/carousel/ge.jpg" alt=""></div>              
+              <div class="item"><img class="box-game" src="assets/img/carousel/8b.jpg" alt=""></div> 
+            </div>
+          </div>
+        </div>
+
+        <div id="adventure" class="adventure">
+          <div class="section-title">
+            <h3>Aventura</h3>
+          </div>
+          <div class="adventure-carosel">
+            <div id="games-adventure" class="owl-carousel owl-theme">
+              <div class="item"><img class="box-game" src="assets/img/carousel/dd.png" alt=""></div>              
+              <div class="item"><img class="box-game" src="assets/img/carousel/ge.jpg" alt=""></div>              
+              <div class="item"><img class="box-game" src="assets/img/carousel/8b.jpg" alt=""></div> 
+            </div>
+          </div>
+        </div>
+      -->
+
+      </div>
+    </main>
+
+    <footer>
+      <span class="author">Created by <a href="https://github.com/Dan-Mqs">A2TECH</a></span> 
+    </footer>
+    
+
+    <!-- Scripts -->
+    
+    <script src="assets/index.js"></script>
+    <script src="https://kit.fontawesome.com/848193978d.js" crossorigin="anonymous"></script>
+    <script src="assets/owl/jquery.min.js"></script>
+    <script>
+      const owl = setTimeout(owlCallback, 1000);
+      const owlSetup = setTimeout(owlSetupCallback, 1050);
+
+      function owlCallback(){
+        var script = document.createElement('script');
+        script.src = "assets/owl/owl.carousel.min.js";
+        document.getElementsByTagName('head')[0].appendChild(script);
+      }
+
+      function owlSetupCallback(){
+        var script = document.createElement('script');
+        script.src = "assets/owl/setup.js";
+        document.getElementsByTagName('head')[0].appendChild(script);
+      }
+
+    </script>
+    
+    <!--<script src="assets/owl/owl.carousel.min.js"></script>
+    <script src="assets/owl/setup.js"></script>-->
+    
+  </body>
+</html>
