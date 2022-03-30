@@ -98,6 +98,8 @@ async function showModal(id) {
 }
 
 function hideModal() {
+  hideEditForm();
+  hideDeleteWarning();
   document.getElementById("modal-game").style = "display: none;";
   document.getElementById("modal-bg").style = "display: none;";
 }
