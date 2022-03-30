@@ -1,0 +1,47 @@
+.container-info {
+  align-items: center !important;
+}
+
+#form-new-game {
+  display: flex;
+  flex-direction: column;
+  min-width: 30rem;
+}
+
+#form-new-game label {
+  margin-top: 0.5rem;
+}
+
+#form-new-game input {
+  font-family: 'Share-Tech', Geneva, Tahoma, sans-serif;
+  font-size: .9rem;
+  padding: .25rem;
+}
+
+.btn-control {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.btn-control .btn {
+    margin-right: 0 !important;
+}
+
+.btn-control .extra-buttons {
+    margin-top: 1.5rem;
+}
+
+.btn-control .extra-buttons .btn:first-child {
+    margin-right: 1rem;
+}
+
+#add-another-game {
+  color: var(--blue);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#add-another-game:hover {
+  color: #ddd;
+}

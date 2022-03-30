@@ -3,6 +3,8 @@
 :root {
   --blue: #4e90c3;
   --black: #141414;
+  --warning-red: #b33a3a;
+  --light-warning-red: #ff5454;
 }
 
 ::-webkit-scrollbar {
@@ -64,6 +66,23 @@ header nav a {
 header nav a:hover {
   color: var(--blue);
   font-weight: 500;
+}
+
+#new-game-btn {
+  border-radius: 5px;
+  padding: 0.25rem;
+  transition: 0.5s ease background;
+  transition: 0.5s ease color;
+  font-weight: 600;
+}
+
+#new-game-btn:hover {
+  background: var(--blue);
+  color: var(--black);
+}
+
+#new-game-btn span {
+  margin-right: 0.25rem;
 }
 
 /* Primary piece */
@@ -163,8 +182,8 @@ header nav a:hover {
 
 /* Content area */
 .loading-placeholder {
-    width: 10rem;
-    height: 10rem;
+  width: 10rem;
+  height: 10rem;
 }
 
 .content {
@@ -184,8 +203,10 @@ header nav a:hover {
   margin-bottom: 0.5rem;
 }
 
-.all-carosel, .best-carosel, .popular-carosel {
-    text-align: center;
+.all-carosel,
+.best-carosel,
+.popular-carosel {
+  text-align: center;
 }
 
 .item {
@@ -282,11 +303,47 @@ header nav a:hover {
 }
 
 .rating-grade {
-    color: #ddd;
+  color: #ddd;
 }
 
 .rating-reviewers {
-    margin-top: .25rem;
+  margin-top: 0.25rem;
+}
+
+#game-admin-btn-container {
+  margin-top: 0.75rem;
+}
+
+#game-admin-btn-container .game-admin-btn {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+#game-admin-btn-container .game-admin-btn span {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-left: 0.25rem;
+  text-transform: uppercase;
+}
+
+#game-admin-btn-edit {
+  color: var(--blue);
+}
+
+#game-admin-btn-edit:hover {
+  color: #ddd;
+}
+
+#game-admin-btn-delete {
+  color: var(--warning-red);
+}
+
+#game-admin-btn-delete:hover {
+  color: var(--light-warning-red);
 }
 
 #modal-game .btn-control {
@@ -342,6 +399,89 @@ header nav a:hover {
   margin-bottom: 1rem;
 }
 
+#form-edit-container {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  border: #444 solid 1px;
+  padding: 1rem;
+  border-radius: 2px;
+}
+
+#modal-game #form-edit-container h3 {
+  margin-bottom: 0;
+}
+
+#form-edit-container .btn-control {
+  margin-top: 0;
+}
+
+#form-edit-container .btn-control .btn {
+  margin-right: 0;
+}
+
+#edit-cancel-btn{
+  margin-top: 1rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+#edit-cancel-btn:hover{
+  color: var(--warning-red);
+}
+
+#form-edit {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 20rem;
+}
+
+#form-edit input {
+  margin-bottom: 0.5rem;
+  padding: 0.25rem;
+}
+
+
+#delete-warning-container{
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  border: var(--warning-red) solid 3px;
+  border-radius: 2px;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+#delete-warning-subtext {
+  color: var(--light-warning-red);
+}
+
+#delete-warning-container .btn-control {
+  margin-top: .5rem;
+}
+
+#delete-warning-container .btn-control .btn {
+  background: var(--warning-red);
+  margin-right: 0;
+}
+
+#delete-warning-container .btn-control .btn:hover {
+  box-shadow: 0px 0px 0px 1px var(--warning-red) inset;
+  color: var(--light-warning-red);
+}
+
+#delete-cancel-btn{
+  margin-top: 1rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+#delete-cancel-btn:hover {
+  color: var(--blue);
+}
+
 #demo-container {
   width: 100%;
   margin-top: 3rem;
@@ -361,7 +501,6 @@ header nav a:hover {
   margin-top: 3rem;
   text-align: center;
 }
-
 
 /* Footer */
 

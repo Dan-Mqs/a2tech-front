@@ -1,3 +1,5 @@
+// GET
+
 async function getData() {
   const data = await fetch("https://a2tech-api.herokuapp.com/api/a2tech/game")
     .then((response) => response.json())
@@ -58,6 +60,11 @@ async function showData() {
   document.getElementById("games-all").innerHTML = allGamesContent;
 }
 
+
+
+
+
+// Modal manipulation
 async function showModal(id) {
   const url = `https://a2tech-api.herokuapp.com/api/a2tech/game/${id}`;
   const game = await fetch(url)
@@ -73,6 +80,19 @@ async function showModal(id) {
   const demoUrl = demoUrlBase + game.urlDemonstracao.slice(-11);
   document.getElementById("demo-video").src = demoUrl;
 
+  //Edit form
+  document.getElementById('edit-game-name').value = game.nome;
+  document.getElementById('edit-game-accessURL').value = game.urlAcesso;
+  document.getElementById('edit-game-demoURL').value = game.urlDemonstracao;
+  document.getElementById('edit-game-imgURL').value = game.urlImagem;
+
+  let updateScript = `updateGame(${id})`;
+  document.getElementById("edit-update-btn").setAttribute("onclick", updateScript);
+
+  let deleteScript = `deleteGame(${id})`;
+  document.getElementById("delete-game-btn").setAttribute("onclick", deleteScript);
+
+  //Show modal
   document.getElementById("modal-game").style = "display: block;";
   document.getElementById("modal-bg").style = "display: block;";
 }
@@ -82,4 +102,68 @@ function hideModal() {
   document.getElementById("modal-bg").style = "display: none;";
 }
 
+// Edit game 
+function showEditForm(){
+  hideDeleteWarning();
+  document.getElementById("form-edit-container").style = "display: flex;"
+}
+
+function hideEditForm(){
+  document.getElementById("form-edit-container").style = "display: none;"
+}
+
+// Edit game: PUT
+async function updateGame(id){
+  let game = {
+    nome: "",
+    urlDemonstracao: "",
+    urlAcesso: "",
+    urlImagem: "",
+  };
+
+  let fetchURL = `https://a2tech-api.herokuapp.com/api/a2tech/game/${id}`
+
+  game.nome = document.getElementById('edit-game-name').value;
+  game.urlAcesso = document.getElementById('edit-game-accessURL').value;
+  game.urlDemonstracao = document.getElementById('edit-game-demoURL').value;
+  game.urlImagem = document.getElementById('edit-game-imgURL').value;
+
+  const rawResponse = await fetch(fetchURL, {
+    method: "PUT",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(game),
+  });
+
+  if(rawResponse.status == 200){
+    showModal(id);
+    hideEditForm();
+  }
+}
+
+// Deleting game
+function showDeleteWarning(){
+  hideEditForm();
+  document.getElementById("delete-warning-container").style = "display: flex;"
+}
+
+function hideDeleteWarning(){
+  document.getElementById("delete-warning-container").style = "display: none;"
+}
+
+async function deleteGame(id){
+  let fetchURL = `https://a2tech-api.herokuapp.com/api/a2tech/game/${id}`;
+
+  const rawResponse = await fetch(fetchURL, {
+    method: "DELETE"
+  });
+
+  location.reload();
+}
+
+
+
+// Execute
 showData();

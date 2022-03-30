@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   
+    <link rel="stylesheet" href="../assets/style/style.css" />
+    <link rel="stylesheet" href="../assets/style/responsive.css" />
+    <link rel="stylesheet" href="../assets/style/new-game.css">
+    <!-- Owl style -->
+    <link rel="stylesheet" href="../assets/owl/style/owl.carousel.min.css">
+    <link rel="stylesheet" href="../assets/owl/style/owl.theme.default.min.css">
+    
+    
+
+    <title>GoodBrowserGames</title>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h2 class="logo">GoodBrowserGames</h2>
+        <nav>
+          <a id="home-btn" href="../index.html"><i class="fas fa-home"></i></a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="primary-piece">
+        <div class="wrapper">
+          <div class="container-info">
+            <h3 class="title">Cadastrar jogo</h3>
+            
+            <div>
+              <form id="form-new-game" action="">
+                
+                <label for="new-game-name">Nome</label>
+                <input id="new-game-name" type="text" placeholder="Novo Jogo">
+                <label for="new-game-accessURL">Link de acesso</label>
+                <input id="new-game-accessURL" type="text" placeholder="URL do jogo">
+                <label for="new-game-demoURL">Vídeo demonstrativo</label>
+                <input id="new-game-demoURL" type="text" placeholder="URL da demonstração">
+                <label for="new-game-imgURL">Imagem de capa</label>
+                <input id="new-game-imgURL" type="text" placeholder="URL da imagem">
+                
+                
+              </form>
+              <div class="btn-control">
+                <button class="btn" onclick="createNewGame()">
+                  <span class="btn-text">CADASTRAR</span>
+                  </button>                                    
+              </div>
+            </div>
+                        
+            
+          </div>
+          
+        </div>
+      </div>
+      
+      
+
+      </div>
+    </main>
+
+    <footer>
+      <span class="author">Created by <a href="#">A2TECH</a></span> 
+    </footer>
+    
+
+    <!-- Scripts -->
+    
+    <script src="../assets/newgame.js"></script>
+    <script src="https://kit.fontawesome.com/848193978d.js" crossorigin="anonymous"></script>
+    
+    
+    
+  </body>
+</html>

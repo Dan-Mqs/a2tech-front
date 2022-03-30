@@ -24,6 +24,9 @@
       <div class="container">
         <h2 class="logo">GoodBrowserGames</h2>
         <nav>
+          <a id="new-game-btn" href="./pages/new-game.html"
+            ><span>ADICIONAR JOGO</span><i class="fas fa-plus"></i
+          >
           <a id="login-btn" href="./pages/login.html"
             ><i class="fas fa-user"></i
           ></a>
@@ -54,7 +57,7 @@
                 </button>
               </a>
               <button id="reviews-btn" class="btn" type="button" onclick="">
-                <i class="fas fa-plus"></i>
+                <i class="fas fa-bars"></i>
                 <span class="btn-text">AVALIAÇÕES</span>
               </button>
             </div>
@@ -122,6 +125,11 @@
                 </span>
                 <p class="rating-reviewers">176 avaliações</p>
 
+                <div id="game-admin-btn-container">
+                  <button class="game-admin-btn" id="game-admin-btn-edit" onclick="showEditForm()"><i class="fas fa-edit"></i><span>Editar</span></button>
+                  <button class="game-admin-btn" id="game-admin-btn-delete" onclick="showDeleteWarning()"><i class="fas fa-trash-alt"></i><span>Deletar</span></button>
+                </div>
+
                 <div class="btn-control">
                   <a id="modal-play-button" href="">
                     <button class="btn" type="button">
@@ -139,6 +147,41 @@
                 <img id="modal-img" src="assets/img/loading.png" />
               </div>
             </div>
+            <div id="form-edit-container">
+              <h3>EDITAR</h3>
+              <form id="form-edit" action="">
+                
+                <label for="edit-game-name">Nome</label>
+                <input id="edit-game-name" type="text">
+                <label for="edit-game-accessURL">Link de acesso</label>
+                <input id="edit-game-accessURL" type="text">
+                <label for="edit-game-demoURL">Vídeo demonstrativo</label>
+                <input id="edit-game-demoURL" type="text">
+                <label for="edit-game-imgURL">Imagem de capa</label>
+                <input id="edit-game-imgURL" type="text">
+                
+                
+              </form>
+              <div class="btn-control">
+                <button id="edit-update-btn" class="btn">
+                  <span class="btn-text">ATUALIZAR</span>
+                  </button>  
+                  <p id="edit-cancel-btn" onclick="hideEditForm()">CANCELAR</p>                                  
+              </div>
+
+            </div>
+
+            <div id="delete-warning-container">
+              <h3 id="delete-warning-text">Tem certeza que deseja deletar este jogo?</h3>
+              <p id="delete-warning-subtext">Atenção: essa ação NÃO pode ser desfeita!</p>
+              <div class="btn-control">
+                <button id="delete-game-btn" class="btn">
+                  <span class="btn-text">DELETAR</span>
+                  </button>  
+                  <p id="delete-cancel-btn" onclick="hideDeleteWarning()">CANCELAR</p>                                  
+              </div>
+            </div>
+
             <div id="demo-container">
               <h3>GAMEPLAY</h3>
               <iframe id="demo-video" src=""> </iframe>
