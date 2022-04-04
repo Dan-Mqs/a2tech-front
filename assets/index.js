@@ -10,7 +10,6 @@ async function getData() {
 
 async function showData() {
   const data = await getData();
-
   const gamesQty = data.length;
 
   let bestGamesContent = "";
@@ -29,7 +28,7 @@ async function showData() {
   let modalScript = `showModal(${highlightedGame.id})`;
   document.getElementById("reviews-btn").setAttribute("onclick", modalScript);
 
-  // Preparando elementos do carrosel de games
+  // Preparando elementos do carrossel de games
   data.forEach((item) => {
     allGamesContent += `
         <div class="item" onclick="showModal(${item.id})">
@@ -53,15 +52,22 @@ async function showData() {
         </div>`;
   });
 
- 
-  // Inserindo elementos nos carroseis
+  // Inserindo elementos nos carrosseis
   document.getElementById("games-best").innerHTML = bestGamesContent;
   document.getElementById("games-popular").innerHTML = popularGamesContent;
   document.getElementById("games-all").innerHTML = allGamesContent;
 
-  removePlaceholders();
-  owlCallback();
-  const owlSetup = setTimeout(owlSetupCallback, 1000);
+  // Inserindo scripts do carrossel
+  while (Array.isArray(data)) {
+    removePlaceholders();
+    owlCallback();
+    const owlSetup = setTimeout(owlSetupCallback, 500);
+    break;
+  }
+
+ /// removePlaceholders();
+ // owlCallback();
+ // const owlSetup = setTimeout(owlSetupCallback, 1000);
 }
 
 function owlCallback() {
@@ -78,15 +84,11 @@ function owlSetupCallback() {
 
 function removePlaceholders() {
   //Retirando placeholders
-  let placeholders = document.getElementsByClassName(
-    "loading-placeholder"
-  );
+  let placeholders = document.getElementsByClassName("loading-placeholder");
   for (const item of placeholders) {
     item.style = "display: none;";
   }
 }
-
-
 
 // Modal manipulation
 async function showModal(id) {
@@ -98,23 +100,26 @@ async function showModal(id) {
   document.getElementById("game-title").innerHTML = game.nome;
   document.getElementById("modal-play-button").href = game.urlAcesso;
   document.getElementById("modal-img").src = game.urlImagem;
-  
 
   const demoUrlBase = "https://www.youtube.com/embed/";
   const demoUrl = demoUrlBase + game.urlDemonstracao.slice(-11);
   document.getElementById("demo-video").src = demoUrl;
 
   //Edit form
-  document.getElementById('edit-game-name').value = game.nome;
-  document.getElementById('edit-game-accessURL').value = game.urlAcesso;
-  document.getElementById('edit-game-demoURL').value = game.urlDemonstracao;
-  document.getElementById('edit-game-imgURL').value = game.urlImagem;
+  document.getElementById("edit-game-name").value = game.nome;
+  document.getElementById("edit-game-accessURL").value = game.urlAcesso;
+  document.getElementById("edit-game-demoURL").value = game.urlDemonstracao;
+  document.getElementById("edit-game-imgURL").value = game.urlImagem;
 
   let updateScript = `updateGame(${id})`;
-  document.getElementById("edit-update-btn").setAttribute("onclick", updateScript);
+  document
+    .getElementById("edit-update-btn")
+    .setAttribute("onclick", updateScript);
 
   let deleteScript = `deleteGame(${id})`;
-  document.getElementById("delete-game-btn").setAttribute("onclick", deleteScript);
+  document
+    .getElementById("delete-game-btn")
+    .setAttribute("onclick", deleteScript);
 
   //Show modal
   document.getElementById("modal-game").style = "display: block;";
@@ -128,18 +133,18 @@ function hideModal() {
   document.getElementById("modal-bg").style = "display: none;";
 }
 
-// Edit game 
-function showEditForm(){
+// Edit game
+function showEditForm() {
   hideDeleteWarning();
-  document.getElementById("form-edit-container").style = "display: flex;"
+  document.getElementById("form-edit-container").style = "display: flex;";
 }
 
-function hideEditForm(){
-  document.getElementById("form-edit-container").style = "display: none;"
+function hideEditForm() {
+  document.getElementById("form-edit-container").style = "display: none;";
 }
 
 // Edit game: PUT
-async function updateGame(id){
+async function updateGame(id) {
   let game = {
     nome: "",
     urlDemonstracao: "",
@@ -147,12 +152,12 @@ async function updateGame(id){
     urlImagem: "",
   };
 
-  let fetchURL = `https://a2tech-api.herokuapp.com/api/a2tech/game/${id}`
+  let fetchURL = `https://a2tech-api.herokuapp.com/api/a2tech/game/${id}`;
 
-  game.nome = document.getElementById('edit-game-name').value;
-  game.urlAcesso = document.getElementById('edit-game-accessURL').value;
-  game.urlDemonstracao = document.getElementById('edit-game-demoURL').value;
-  game.urlImagem = document.getElementById('edit-game-imgURL').value;
+  game.nome = document.getElementById("edit-game-name").value;
+  game.urlAcesso = document.getElementById("edit-game-accessURL").value;
+  game.urlDemonstracao = document.getElementById("edit-game-demoURL").value;
+  game.urlImagem = document.getElementById("edit-game-imgURL").value;
 
   const rawResponse = await fetch(fetchURL, {
     method: "PUT",
@@ -163,33 +168,31 @@ async function updateGame(id){
     body: JSON.stringify(game),
   });
 
-  if(rawResponse.status == 200){
+  if (rawResponse.status == 200) {
     showModal(id);
     hideEditForm();
   }
 }
 
 // Deleting game
-function showDeleteWarning(){
+function showDeleteWarning() {
   hideEditForm();
-  document.getElementById("delete-warning-container").style = "display: flex;"
+  document.getElementById("delete-warning-container").style = "display: flex;";
 }
 
-function hideDeleteWarning(){
-  document.getElementById("delete-warning-container").style = "display: none;"
+function hideDeleteWarning() {
+  document.getElementById("delete-warning-container").style = "display: none;";
 }
 
-async function deleteGame(id){
+async function deleteGame(id) {
   let fetchURL = `https://a2tech-api.herokuapp.com/api/a2tech/game/${id}`;
 
   const rawResponse = await fetch(fetchURL, {
-    method: "DELETE"
+    method: "DELETE",
   });
 
   location.reload();
 }
-
-
 
 // Execute
 showData();
