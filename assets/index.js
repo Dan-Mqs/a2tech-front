@@ -59,15 +59,11 @@ async function showData() {
 
   // Inserindo scripts do carrossel
   while (Array.isArray(data)) {
-    removePlaceholders();
     owlCallback();
+    const removePlaceholdersTimeOut = setTimeout(removePlaceholders, 500);
     const owlSetup = setTimeout(owlSetupCallback, 500);
     break;
   }
-
- /// removePlaceholders();
- // owlCallback();
- // const owlSetup = setTimeout(owlSetupCallback, 1000);
 }
 
 function owlCallback() {
