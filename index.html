@@ -227,42 +227,13 @@
 
     <!-- Scripts -->
 
-    <script src="assets/index.js"></script>
+    
     <script
       src="https://kit.fontawesome.com/848193978d.js"
       crossorigin="anonymous"
     ></script>
     <script src="assets/owl/jquery.min.js"></script>
-    <script>
-      const removePh = setTimeout(removePlaceholders, 1450);
-      const owl = setTimeout(owlCallback, 1050);
-      const owlSetup = setTimeout(owlSetupCallback, 1500);
-      
-
-      function owlCallback() {
-        var script = document.createElement("script");
-        script.src = "assets/owl/owl.carousel.min.js";
-        document.getElementsByTagName("head")[0].appendChild(script);
-      }
-
-      function owlSetupCallback() {
-        var script = document.createElement("script");
-        script.src = "assets/owl/setup.js";
-        document.getElementsByTagName("head")[0].appendChild(script);
-      }
-
-      function removePlaceholders() {
-        //Retirando placeholders
-        let placeholders = document.getElementsByClassName(
-          "loading-placeholder"
-        );
-        for (const item of placeholders) {
-          item.style = "display: none;";
-        }
-      }
-    </script>
-
-    <!--<script src="assets/owl/owl.carousel.min.js"></script>
-    <script src="assets/owl/setup.js"></script>-->
+    <script src="assets/index.js"></script>
+     
   </body>
 </html>

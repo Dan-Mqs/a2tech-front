@@ -58,9 +58,33 @@ async function showData() {
   document.getElementById("games-best").innerHTML = bestGamesContent;
   document.getElementById("games-popular").innerHTML = popularGamesContent;
   document.getElementById("games-all").innerHTML = allGamesContent;
+
+  removePlaceholders();
+  owlCallback();
+  const owlSetup = setTimeout(owlSetupCallback, 500);
 }
 
+function owlCallback() {
+  var script = document.createElement("script");
+  script.src = "assets/owl/owl.carousel.min.js";
+  document.getElementsByTagName("head")[0].appendChild(script);
+}
 
+function owlSetupCallback() {
+  var script = document.createElement("script");
+  script.src = "assets/owl/setup.js";
+  document.getElementsByTagName("head")[0].appendChild(script);
+}
+
+function removePlaceholders() {
+  //Retirando placeholders
+  let placeholders = document.getElementsByClassName(
+    "loading-placeholder"
+  );
+  for (const item of placeholders) {
+    item.style = "display: none;";
+  }
+}
 
 
 
