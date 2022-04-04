@@ -61,7 +61,7 @@ async function showData() {
 
   removePlaceholders();
   owlCallback();
-  const owlSetup = setTimeout(owlSetupCallback, 500);
+  const owlSetup = setTimeout(owlSetupCallback, 1000);
 }
 
 function owlCallback() {
