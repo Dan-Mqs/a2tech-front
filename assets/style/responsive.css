@@ -105,7 +105,9 @@
         text-align: justify;
     }
 
-   
+    #form-new-game {
+        min-width: 15rem !important;
+    }
 }
 
 @media screen and (max-width:440px){
